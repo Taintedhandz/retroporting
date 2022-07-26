@@ -147,6 +147,12 @@ CALL itemdisplayinfo_weapon(70015, 'shield_pvp400_c_01.mdx', 'shield_pvp400_c_01
 -- Bloodthirsty Gladiator's Endgame
 CALL itemdisplayinfo_weapon(70016, 'misc_1h_book_c_05.mdx', 'misc_1h_book_c_05', 'inv_misc_book_18', @sound_2h);
 
+-- Prison Blade Lesson
+CALL itemdisplayinfo_weapon(70017, 'sword_2h_mawraid_d_01.mdx', 'sword_2h_mawraid_d_01', 'inv_sword_2h_mawraid_d_01', @sound_2h);
+
+-- funky orange staff
+CALL itemdisplayinfo_weapon(70018, 'stave_2h_tarecgosa_e_01stagefinal.mdx', 'stave_2h_tarecgosa_e_01stage3', 'stave_2h_tarecgosa_e_01stagefinal', @sound_2h);
+
 /*
 * Warrior
 */

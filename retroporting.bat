@@ -92,7 +92,7 @@ cls
 cd %default_path% & cd "SQL\"
 echo Running sql scripts...
 echo.
-mysql --login-path=local < items.sql acore_world_wobgob && echo item_template - Command successfully executed
+mysql --login-path=local < items.sql acore_world && echo item_template - Command successfully executed
 mysql --login-path=local < item-dbc.sql dbc && echo item.dbc - Command successfully executed
 mysql --login-path=local < itemdisplayinfo-dbc.sql dbc && echo itemdisplayinfo.dbc - Command successfully executed
 echo.
@@ -108,33 +108,33 @@ cls
 cd %default_path% & echo Moving converted files from export folder(s) to wow patch:
 echo.
 echo Item.dbc:
-xcopy /s /y /q "Converting Tools\Spell Editor\Export\item.dbc" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient"
+xcopy /s /y /q "Converting Tools\Spell Editor\Export\item.dbc" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\DBFilesClient"
 echo.
 echo ItemDisplayInfo.dbc:
-xcopy /s /y /q "Converting Tools\Spell Editor\Export\itemdisplayinfo.dbc" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient"
+xcopy /s /y /q "Converting Tools\Spell Editor\Export\itemdisplayinfo.dbc" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\DBFilesClient"
 echo.
 echo Moving .m2 files (wow.export)
-xcopy /s /e /y /q "wow.export\*.m2" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
+xcopy /s /e /y /q "wow.export\*.m2" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\"
 echo.
 echo Moving .blp files (wow.export)
-xcopy /s /e /y /q "wow.export\*.blp" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
+xcopy /s /e /y /q "wow.export\*.blp" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\"
 echo.
 echo Moving .skin files (wow.export)
-xcopy /s /e /y /q "wow.export\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
+xcopy /s /e /y /q "wow.export\*.skin" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\"
 echo.
 echo Moving .m2 files (wow.export.other)
-xcopy /s /e /y /q "wow.export.other\*.m2" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
+xcopy /s /e /y /q "wow.export.other\*.m2" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\"
 echo.
 echo Moving .skin files (wow.export.other)
-xcopy /s /e /y /q "wow.export.other\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
+xcopy /s /e /y /q "wow.export.other\*.skin" "D:\WoW - WotLK (Classic Textures)\Data\patch-4.mpq\"
 echo.
 pause>nul|set/p = Files moved! Press any key to return to the menu...
 goto main
 
 :cache
 cls
-if exist "E:\World of Warcraft 3.3.5a\Cache\" (
-    rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache"
+if exist "D:\WoW - WotLK (Classic Textures)\Cache\" (
+    rmdir /s /q "D:\WoW - WotLK (Classic Textures)\Cache"
 ) else (
     echo Cache not present.
 )
@@ -143,14 +143,14 @@ goto main
 
 :cache_wow
 cls
-if exist "E:\World of Warcraft 3.3.5a\Cache\" (
-    rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache"
+if exist "D:\WoW - WotLK (Classic Textures)\Cache\" (
+    rmdir /s /q "D:\WoW - WotLK (Classic Textures)\Cache"
 ) else (
     echo Cache not present.
 )
 echo.
 echo Starting wow...
-start "" "E:\World of Warcraft 3.3.5a\wow_allow_mpq_edits.exe"
+start "" "D:\WoW - WotLK (Classic Textures)\wow_allow_mpq_edits.exe"
 pause>nul|set/p = Cache deleted! Press any key to return to the menu...
 goto main
 

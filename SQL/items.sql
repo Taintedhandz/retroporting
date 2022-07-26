@@ -284,6 +284,8 @@ call create_one_hand_axe(70013, "Bloodthirsty Gladiator's Cleaver", '', 70013, @
 call create_staff(70014, "Bloodthirsty Gladiator's Staff", '', 70014, @flags_default);
 call create_shield(70015, "Bloodthirsty Gladiator's Shield Wall", '', 70015, @flags_default);
 call create_off_hand_frill(70016, "Bloodthirsty Gladiator's Endgame", '', 70016, @flags_default);
+call create_two_hand_sword(70017, "Jaithys, the Prison Blade", '', 70017, @flags_default);
+call create_staff(70018, "Dragonwrath, Tarecgosa's Rest", '', 70018, @flags_default);
 
 /*
 * Warrior

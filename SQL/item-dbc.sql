@@ -88,6 +88,17 @@ replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, ma
 select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
 from acore_world.item_template where entry = 70016;
 
+-- Prison Blade Test
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 70017;
+
+-- Dragonwrath, Tarecgosa's Rest
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 70018;
+
+
 /*
 * Warrior
 */
