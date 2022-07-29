@@ -62,11 +62,26 @@ BEGIN
       (id, upperlegtexture, inventoryicon1, groupsoundindex);
 END//
 
+-- Has a second texture for lower Torso
+DROP PROCEDURE IF EXISTS `itemdisplayinfo_belt2` //
+CREATE PROCEDURE itemdisplayinfo_belt2(IN id INT(10), IN upperlegtexture TEXT(255), IN lowertorsotexture TEXT(255), IN inventoryicon1 TEXT(255), IN groupsoundindex INT(10))
+BEGIN
+    REPLACE INTO itemdisplayinfo(id, upperlegtexture, lowertorsotexture, inventoryicon1, groupsoundindex) VALUES
+      (id, upperlegtexture, lowertorsotexture, inventoryicon1, groupsoundindex);
+END//
+
 DROP PROCEDURE IF EXISTS `itemdisplayinfo_legs` //
 CREATE PROCEDURE itemdisplayinfo_legs(IN id INT(10),  IN upperlegtexture TEXT(255), IN lowerlegtexture TEXT(255), IN inventoryicon1 TEXT(255), IN groupsoundindex INT(10))
 BEGIN
     REPLACE INTO itemdisplayinfo(id, upperlegtexture, lowerlegtexture, inventoryicon1, groupsoundindex) VALUES
       (id, upperlegtexture, lowerlegtexture, inventoryicon1, groupsoundindex);
+END//
+
+DROP PROCEDURE IF EXISTS `itemdisplayinfo_bumplegs` //
+CREATE PROCEDURE itemdisplayinfo_bumplegs(IN id INT(10),  IN upperlegtexture TEXT(255), IN lowerlegtexture TEXT(255), IN inventoryicon1 TEXT(255), IN groupsoundindex INT(10), IN geosetgroup1 INT(10))
+BEGIN
+    REPLACE INTO itemdisplayinfo(id, upperlegtexture, lowerlegtexture, inventoryicon1, groupsoundindex, geosetgroup1) VALUES
+      (id, upperlegtexture, lowerlegtexture, inventoryicon1, groupsoundindex, geosetgroup1);
 END//
 
 DROP PROCEDURE IF EXISTS `itemdisplayinfo_legs_skirt` //
@@ -222,7 +237,7 @@ CALL itemdisplayinfo_shoulders(80017, 'lshoulder_leather_pvprogue_c_01.mdx', 'rs
 -- Bloodthirsty Gladiator's Leather Tunic
 CALL itemdisplayinfo_chest(80018, 'leather_pvprogue_c_01_sleeve_au', 'leather_pvprogue_c_01_glove_al', 'leather_pvprogue_c_01_chest_tu', 'leather_pvprogue_c_01_chest_tl', 'inv_chest_leather_24', @sound_leather_cloth);
 
--- Bloodthirsty Gladiator's Armwraps
+-- Bloodthirsty Gladiator's Armguards
 CALL itemdisplayinfo_bracers(80019, 'leather_pvprogue_c_01_bracer_al', 'inv_bracer_leather_pvprogue_c_01', @sound_leather_cloth);
 
 -- Bloodthirsty Gladiator's Leather Gloves
@@ -287,7 +302,7 @@ CALL itemdisplayinfo_tunic(80036, 'cloth_pvpwarlock_c_01_black_sleeve_au', 'clot
 -- Bloodthirsty Gladiator's Cuffs
 CALL itemdisplayinfo_bracers(80037, 'cloth_pvpwarlock_c_01_black_bracer_al', 'inv_bracer_cloth_pvpwarlock_c_01', @sound_leather_cloth);
 
--- Bloodthirsty Gladiator's Felweave Handwraps
+-- Bloodthirsty Gladiator's Felweave Handguards
 CALL itemdisplayinfo_gloves(80038, 'cloth_pvpwarlock_c_01_black_glove_al', 'cloth_pvpwarlock_c_01_black_glove_ha', 'inv_gauntlets_cloth_pvpwarlock_c_01', @sound_leather_cloth, 0);
 
 -- Bloodthirsty Gladiator's Cord
@@ -377,7 +392,7 @@ CALL itemdisplayinfo_tunic(80062, 'cloth_pvpmage_c_01yellow_sleeve_au', 'cloth_p
 -- Bloodthirsty Gladiator's Cuffs
 CALL itemdisplayinfo_bracers(80063, 'cloth_pvpwarlock_c_01_black_bracer_al', 'inv_bracer_cloth_pvpmage_c_01', @sound_leather_cloth);
 
--- Bloodthirsty Gladiator's Silk Handwraps
+-- Bloodthirsty Gladiator's Silk Handguards
 CALL itemdisplayinfo_gloves(80064, 'cloth_pvpmage_c_01yellow_glove_al', 'cloth_pvpmage_c_01yellow_glove_ha', 'inv_gauntlets_cloth_pvpmage_c_01', @sound_leather_cloth, 0);
 
 -- Bloodthirsty Gladiator's Cord
@@ -444,3 +459,155 @@ CALL itemdisplayinfo_legs(80082, 'plate_pvppaladin_c_01orange_pant_lu', 'plate_p
 
 -- Bloodthirsty Gladiator's Greaves
 CALL itemdisplayinfo_boots(80083, 'LShoulder_Plate_A_01.mdx', 'RShoulder_Plate_A_01.mdx', 'Shoulder_Plate_A_01Black', 'Shoulder_Plate_A_01Black', 'plate_pvppaladin_c_01orange_boot_ll', 'plate_pvppaladin_c_01orange_boot_fo', 'inv_boots_plate_pvppaladin_c_01', @sound_plate, 4);
+
+
+/* ------------------------ Cataclysm Tier 12 Raid Set (Fiery theme) for Heroic Molten Core ------------------------
+----------------------------------------------- 8 Piece Armour Set -------------------------------------------------
+*/
+
+
+/*
+* Warrior
+*/
+
+-- Helmet of the Molten Giant
+CALL itemdisplayinfo_helmet(80084, 'helm_plate_raidwarrior_j_01.mdx', 'helm_plate_raidwarrior_j_01red', 'inv_helm_plate_raidwarrior_j_01', @sound_plate, 248, 306);
+
+-- Pauldrons of the Molten Giant
+CALL itemdisplayinfo_shoulders(80085, 'lshoulder_plate_raidwarrior_j_01.mdx', 'rshoulder_plate_raidwarrior_j_01.mdx', 'shoulder_plate_raidwarrior_j_01red', 'shoulder_plate_raidwarrior_j_01red', 'inv_shoulder_plate_raidwarrior_j_01', @sound_plate);
+
+-- Battleplate of the Molten Giant
+CALL itemdisplayinfo_chest(80086, 'plate_raidwarrior_j_01red_sleeve_au', '', 'plate_raidwarrior_j_01red_chest_tu', 'plate_raidwarrior_j_01red_chest_tl', 'inv_chest_plate_raidwarrior_j_01', @sound_plate);
+
+-- Bracers of the Molten Giant
+CALL itemdisplayinfo_bracers(80087, 'plate_raidwarrior_j_01red_bracer_al', 'inv_bracer_plate_raidwarrior_j_01', @sound_plate);
+
+-- Gauntlets of the Molten Giant
+CALL itemdisplayinfo_gloves(80088, 'plate_raidwarrior_j_01red_glove_al', 'plate_raidwarrior_j_01red_glove_ha', 'inv_glove_plate_raidwarrior_j_01', @sound_plate, 3);
+
+-- Girdle of the Molten Giant
+CALL itemdisplayinfo_belt2(80089, 'plate_raidwarrior_j_01red_belt_lu', 'plate_raidwarrior_j_01red_belt_tl', 'inv_belt_plate_raidwarrior_j_01', @sound_plate);
+
+-- Legplates of the Molten Giant
+CALL itemdisplayinfo_legs(80090, 'plate_raidwarrior_j_01red_pant_lu', 'plate_raidwarrior_j_01red_pant_ll', 'inv_glove_pants_raidwarrior_j_01', @sound_plate);
+
+-- Warboots of the Molten Giant
+CALL itemdisplayinfo_boots(80091, 'lshoulder_plate_raidwarrior_j_01.mdx', 'rshoulder_plate_raidwarrior_j_01.mdx', 'shoulder_plate_raidwarrior_j_01red', 'shoulder_plate_raidwarrior_j_01red', 'plate_raidwarrior_j_01red_boot_ll', 'plate_raidwarrior_j_01red_boot_fo', 'inv_boots_plate_raidwarrior_j_01', @sound_plate, 4);
+
+/*
+* Hunter
+*/
+
+-- Flamewaker's Headguard
+CALL itemdisplayinfo_helmet(80092, 'helm_mail_raidhunter_j_01.mdx', 'helm_mail_raidhunter_j_01_red', 'inv_helm_mail_raidhunter_j_01', @sound_mail, 248, 306);
+
+-- Flamewaker's Spaulders
+CALL itemdisplayinfo_shoulders(80093, 'lshoulder_mail_raidhunter_j_01.mdx', 'rshoulder_mail_raidhunter_j_01.mdx', 'shoulder_mail_raidhunter_j_01_red', 'shoulder_mail_raidhunter_j_01_red', 'inv_shoulder_mail_raidhunter_j_01', @sound_mail);
+
+-- Flamewaker's Tunic
+CALL itemdisplayinfo_chest(80094, 'mail_raidhunter_j_01_red_sleeve_au', '', 'mail_raidhunter_j_01_red_chest_tu', 'mail_raidhunter_j_01_red_chest_tl', 'inv_chest_mail_raidhunter_j_01', @sound_mail);
+
+-- Flamewaker's Bracers
+CALL itemdisplayinfo_bracers(80095, 'mail_raidhunter_j_01_red_bracer_al', 'inv_bracer_mail_raidhunter_j_01', @sound_mail);
+
+-- Flamewaker's Gloves
+CALL itemdisplayinfo_gloves(80096, 'mail_raidhunter_j_01_red_glove_al', 'mail_raidhunter_j_01_red_glove_ha', 'inv_glove_mail_raidhunter_j_01', @sound_mail, 3);
+
+-- Flamewaker's Belt
+CALL itemdisplayinfo_belt(80097, 'mail_raidhunter_j_01_orange_belt_lu', 'inv_belt_mail_raidhunter_j_01', @sound_mail);
+
+-- Flamewaker's Legguards
+CALL itemdisplayinfo_legs(80098, 'mail_raidhunter_j_01_red_pant_lu', 'mail_raidhunter_j_01_red_pant_ll', 'inv_glove_mail_raidhunter_j_01', @sound_mail);
+
+-- Flamewaker's Treads
+CALL itemdisplayinfo_boots(80099, 'lshoulder_mail_raidhunter_j_01.mdx', 'rshoulder_mail_raidhunter_j_01.mdx', 'shoulder_mail_raidhunter_j_01_red', 'shoulder_mail_raidhunter_j_01_red', 'mail_raidhunter_j_01_red_boot_ll', 'mail_raidhunter_j_01_red_boot_fo', 'inv_boots_mail_raidhunter_j_01', @sound_mail, 4);
+
+/*
+* Rogue
+*/
+
+-- Dark Phoenix Helmet
+CALL itemdisplayinfo_helmet(80100, 'helm_leather_raidrogue_j_01.mdx', 'helm_leather_raidrogue_j_01gold', 'inv_helmet_leather_raidrogue_j_01', @sound_leather_cloth, 248, 306);
+
+-- Dark Phoenix Spaulders
+CALL itemdisplayinfo_shoulders(80101, 'lshoulder_leather_raidrogue_j_01.mdx', 'rshoulder_leather_raidrogue_j_01.mdx', 'leather_raidrogue_j_01gold', 'leather_raidrogue_j_01gold', 'inv_shoulders_leather_raidrogue_j_01', @sound_leather_cloth);
+
+-- Dark Phoenix Tunic
+CALL itemdisplayinfo_chest(80102, 'leather_raidrogue_j_01gold_sleeve_au', 'leather_raidrogue_j_01gold_glove_al', 'leather_raidrogue_j_01gold_chest_tu', 'leather_raidrogue_j_01gold_chest_tl', 'inv_chest_leather_raidrogue_j_01', @sound_leather_cloth);
+
+-- Dark Phoenix Bracers
+CALL itemdisplayinfo_bracers(80103, 'leather_raidrogue_j_01gold_bracer_al', 'inv_bracer_leather_raidrogue_j_01', @sound_leather_cloth);
+
+-- Dark Phoenix Gloves
+CALL itemdisplayinfo_gloves(80104, 'leather_raidrogue_j_01gold_glove_al', 'leather_raidrogue_j_01gold_glove_ha', 'inv_gauntlet_leather_raidrogue_j_01', @sound_leather_cloth, 2);
+
+-- Dark Phoenix Girdle
+CALL itemdisplayinfo_belt(80105, 'leather_raidrogue_j_01gold_belt_lu', 'inv_belt_leather_raidrogue_j_01', @sound_leather_cloth);
+
+-- Dark Phoenix Legguards
+CALL itemdisplayinfo_legs(80106, 'leather_raidrogue_j_01gold_pant_lu', 'leather_raidrogue_j_01gold_pant_ll', 'inv_pants_leather_raidrogue_j_01', @sound_leather_cloth);
+
+-- Dark Phoenix Treads
+CALL itemdisplayinfo_boots(80107, '', '', '', '', 'leather_raidrogue_j_01gold_boot_ll', 'leather_raidrogue_j_01gold_boot_fo', 'inv_boot_leather_raidrogue_j_01', @sound_leather_cloth, 2);
+
+/*
+* Priest
+*/
+
+-- Cowl of the Cleansing Flame
+CALL itemdisplayinfo_helmet(80108, 'helm_robe_raidpriest_j_01.mdx', 'helm_robe_raidpriest_j_01orange', 'inv_helmet_robe_raidpriest_j_01', @sound_leather_cloth, 0, 0);
+
+-- Mantle of the Cleansing Flame
+CALL itemdisplayinfo_shoulders(80109, 'lshoulder_robe_raidpriest_j_01.mdx', 'rshoulder_robe_raidpriest_j_01.mdx', 'shoulder_robe_raidpriest_j_01orange', 'shoulder_robe_raidpriest_j_01orange', 'inv_shoulder_robe_raidpriest_j_01', @sound_leather_cloth);
+
+-- Robe of the Cleansing Flame
+CALL itemdisplayinfo_robe(80110, 'robe_raidpriest_j_01orange_sleeve_au', 'robe_raidpriest_j_01orange_sleeve_al', 'robe_raidpriest_j_01orange_chest_tu', 'robe_raidpriest_j_01orange_chest_tl', 'robe_raidpriest_j_01orange_robe_lu', 'robe_raidpriest_j_01orange_robe_ll', 'inv_chest_robe_raidpriest_j_01', @sound_leather_cloth, 1, 1);
+
+-- Tunic of the Cleansing Flame
+CALL itemdisplayinfo_tunic(80111, 'robe_raidpriest_j_01orange_sleeve_au', 'robe_raidpriest_j_01orange_sleeve_al', 'robe_raidpriest_j_01orange_chest_tu', 'robe_raidpriest_j_01orange_chest_tl', 'inv_chest_robe_raidpriest_j_01', @sound_leather_cloth, 1);
+
+-- Cuffs of the Cleansing Flame
+CALL itemdisplayinfo_bracers(80112, 'robe_raidpriest_j_01orange_bracer_al', 'inv_bracer_robe_raidpriest_j_01', @sound_leather_cloth);
+
+-- Handwraps of the Cleansing Flame
+CALL itemdisplayinfo_gloves(80113, 'robe_raidpriest_j_01orange_glove_al', 'robe_raidpriest_j_01orange_glove_ha', 'inv_gauntlets_robe_raidpriest_j_01', @sound_leather_cloth, 0);
+
+-- Chain of the Cleansing Flame
+CALL itemdisplayinfo_belt(80114, 'robe_raidpriest_j_01orange_belt_lu', 'inv_belt_robe_raidpriest_j_01', @sound_leather_cloth);
+
+-- Leggings of the Cleansing Flame
+CALL itemdisplayinfo_legs(80115, 'robe_raidpriest_j_01orange_pant_lu', 'robe_raidpriest_j_01orange_pant_ll', 'inv_pants_robe_raidpriest_j_01', @sound_leather_cloth);
+
+-- Slippers of the Cleansing Flame
+CALL itemdisplayinfo_boots(80116, '', '', '', '', 'robe_raidpriest_j_01orange_boot_ll', 'robe_raidpriest_j_01orange_boot_fo', 'inv_boots_robe_raidpriest_j_01', @sound_leather_cloth, 0);
+
+/*
+* Warlock
+*/
+  
+-- Balespider's Hood
+CALL itemdisplayinfo_helmet(80117, 'helm_robe_raidwarlock_j_01.mdx', 'helm_robe_raidwarlock_j_01_orange', 'inv_helm_robe_raidwarlock_j_01', @sound_leather_cloth, 248, 306);
+
+-- Balespider's Mantle
+CALL itemdisplayinfo_shoulders(80118, 'lshoulder_robe_raidwarlock_j_01.mdx', 'rshoulder_robe_raidwarlock_j_01.mdx', 'shoulder_robe_raidwarlock_j_01_orange', 'shoulder_robe_raidwarlock_j_01_orange', 'inv_shoulder_robe_raidwarlock_j_01', @sound_leather_cloth);
+
+-- Balespider's Robes
+CALL itemdisplayinfo_robe(80119, 'robe_raidwarlock_j_01_orange_sleeve_au', 'robe_raidwarlock_j_01_orange_glove_al', 'robe_raidwarlock_j_01_orange_chest_tu', 'robe_raidwarlock_j_01_orange_chest_tl', 'robe_raidwarlock_j_01_orange_robe_lu', 'robe_raidwarlock_j_01_orange_robe_ll', 'inv_chest_robe_raidwarlock_j_01', @sound_leather_cloth, 0, 1);
+
+-- Balespider's Tunic
+CALL itemdisplayinfo_tunic(80120, 'robe_raidwarlock_j_01_orange_sleeve_au', 'robe_raidwarlock_j_01_orange_glove_al', 'robe_raidwarlock_j_01_orange_chest_tu', 'robe_raidwarlock_j_01_orange_chest_tl', 'inv_chest_robe_raidwarlock_j_01', @sound_leather_cloth, 0);
+
+-- Balespider's Bindings
+CALL itemdisplayinfo_bracers(80121, 'robe_raidwarlock_j_01_orange_bracer_al', 'inv_bracer_robe_raidwarlock_j_01', @sound_leather_cloth);
+
+-- Balespider's Handwraps
+CALL itemdisplayinfo_gloves(80122, 'robe_raidwarlock_j_01_orange_glove_al', 'robe_raidwarlock_j_01_orange_glove_ha', 'inv_glove_robe_raidwarlock_j_01', @sound_leather_cloth, 0);
+
+-- Balespider's Belt
+CALL itemdisplayinfo_belt(80123, 'robe_raidpriest_j_01orange_belt_lu', 'inv_belt_robe_raidwarlock_j_01', @sound_leather_cloth);
+
+-- Balespider's Leggings
+CALL itemdisplayinfo_legs(80124, 'robe_raidwarlock_j_01_orange_pant_lu', 'robe_raidwarlock_j_01_orange_pant_ll', 'inv_pants_robe_raidwarlock_j_01', @sound_leather_cloth);
+
+-- Balespider's Sandals
+CALL itemdisplayinfo_boots(80125, '', '', '', '', 'robe_raidwarlock_j_01_orange_boot_ll', 'robe_raidwarlock_j_01_orange_boot_fo', 'inv_boots_robe_raidwarlock_j_01', @sound_leather_cloth, 0);

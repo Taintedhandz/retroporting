@@ -558,3 +558,258 @@ from acore_world.item_template where entry = 80082;
 replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
 select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
 from acore_world.item_template where entry = 80083;
+
+
+/* ------------------------ Cataclysm Tier 12 Raid Set (Fiery theme) for Heroic Molten Core ------------------------
+----------------------------------------------- 8 Piece Armour Set -------------------------------------------------
+*/
+
+
+/*
+* Warrior
+*/
+-- Helmet of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80084;
+
+-- Paldrons of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80085;
+
+-- Battleplate of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80086;
+
+-- Bracers of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80087;
+
+-- Gauntlets of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80088;
+
+-- Girdle of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80089;
+
+-- Legplates of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80090;
+
+-- Warboots of the Molten Giant
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80091;
+
+
+/*
+* Hunter
+*/
+-- Flamewaker's Headguard
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80092;
+
+-- Flamewaker's Spaulders
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80093;
+
+-- Flamewaker's Tunic
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80094;
+
+-- Flamewaker's Bracers
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80095;
+
+-- Flamewaker's Gloves
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80096;
+
+-- Flamewaker's Belt
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80097;
+
+-- Flamewaker's Legguards
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80098;
+
+-- Flamewaker's Treads
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80099;
+
+/*
+* Rogue
+*/
+
+-- Dark Phoenix Helmet
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80100;
+
+-- Dark Phoenix Spaulders
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80101;
+
+-- Dark Phoenix Tunic
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80102;
+
+-- Dark Phoenix Bracers
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80103;
+
+-- Dark Phoenix Gloves
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80104;
+
+-- Dark Phoenix Girdle
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80105;
+
+-- Dark Phoenix Legguards
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80106;
+
+-- Dark Phoenix Treads
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80107;
+
+/*
+* Priest
+*/
+
+-- Cowl of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80108;
+
+-- Mantle of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80109;
+
+-- Robe of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80110;
+
+-- Tunic of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80111;
+
+-- Cuffs of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80112;
+
+-- Handwraps of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80113;
+
+-- Chain of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80114;
+
+-- Leggings of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80115;
+
+-- Slippers of the Cleansing Flame
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80116;
+
+/*
+* Warlock
+*/
+
+-- Balespider's Hood
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80117;
+
+-- Balespider's Mantle
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80118;
+
+-- Balespider's Robes
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80119;
+
+-- Balespider's Tunic
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80120;
+
+-- Balespider's Bindings
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80121;
+
+-- Balespider's Handwraps
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80122;
+
+-- Balespider's Belt
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80123;
+
+-- Balespider's Leggings
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80124;
+
+-- Balespider's Sandals
+replace into item(itemid, itemclass, itemsubclass, sound_override_subclassid, materialid, itemdisplayinfo, inventoryslotid, sheathid) 
+select entry, class, subclass, soundoverridesubclass, material, displayid, inventorytype, sheath
+from acore_world.item_template where entry = 80125;
+
+/*
+* Death Knight
+*/
+
+/*
+* Druid
+*/
+
+/*
+* Mage
+*/
+
+/*
+* Shaman
+*/
+
+/*
+* Paladin
+*/

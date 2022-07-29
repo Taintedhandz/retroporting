@@ -85,186 +85,191 @@ set @flags_heroic = 8;
 set @flags_default = 36864;
 set @quality_epic = 4;
 
+-- Bonding
+set @bind_on_pickup = 1;
+
 
 DELIMITER //
 
 DROP PROCEDURE IF EXISTS `create_armor` //
-CREATE PROCEDURE create_armor(IN entry MEDIUMINT(7), IN name VARCHAR(255),  IN description VARCHAR(255), IN class TINYINT(3), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN inventorytype TINYINT(3), IN quality TINYINT(3), IN itemlevel SMALLINT(5), IN requiredlevel TINYINT(3), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
+CREATE PROCEDURE create_armor(IN entry MEDIUMINT(7), IN name VARCHAR(255),  IN description VARCHAR(255), IN class TINYINT(3), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN inventorytype TINYINT(3), IN quality TINYINT(3), IN itemlevel SMALLINT(5), IN requiredlevel TINYINT(3), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10), IN bonding TINYINT(3))
 BEGIN
-    REPLACE INTO item_template(entry, name, description, class, subclass, displayid, inventorytype, quality, itemlevel, requiredlevel, flags, allowableclass, material) VALUES
-      (entry, name, description, class, subclass, displayid, inventorytype, quality, itemlevel, requiredlevel, flags, allowableclass, material);
+    REPLACE INTO item_template(entry, name, description, class, subclass, displayid, inventorytype, quality, itemlevel, requiredlevel, flags, allowableclass, material, bonding) VALUES
+      (entry, name, description, class, subclass, displayid, inventorytype, quality, itemlevel, requiredlevel, flags, allowableclass, material, bonding);
 END//
 
 DROP PROCEDURE IF EXISTS `create_helmet` //
 CREATE PROCEDURE create_helmet(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_head, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_head, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_shoulders` //
 CREATE PROCEDURE create_shoulders(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_shoulders, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_shoulders, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_robe` //
 CREATE PROCEDURE create_robe(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_robe, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_robe, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_chest` //
 CREATE PROCEDURE create_chest(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_chest, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_chest, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_bracers` //
 CREATE PROCEDURE create_bracers(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_wrists, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_wrists, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_gloves` //
 CREATE PROCEDURE create_gloves(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_hands, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_hands, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_belt` //
 CREATE PROCEDURE create_belt(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_waist, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_waist, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_legs` //
 CREATE PROCEDURE create_legs(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_legs, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_legs, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_boots` //
 CREATE PROCEDURE create_boots(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN flags INT(10), IN allowableclass INT(10), IN material TINYINT(10))
 BEGIN
-    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_feet, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material);
+    CALL create_armor(entry, name, description, @class_armor, subclass, displayid, @inventorytype_feet, @quality_epic, @itemlevel, @requiredlevel, flags, allowableclass, material, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_weapon` //
-CREATE PROCEDURE create_weapon(IN entry MEDIUMINT(7), IN name VARCHAR(255),  IN description VARCHAR(255), IN class TINYINT(3), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN inventorytype TINYINT(3), IN sheath TINYINT(3), IN quality TINYINT(3), IN itemlevel SMALLINT(5), IN requiredlevel TINYINT(3), IN flags INT(10), IN material TINYINT(10))
+CREATE PROCEDURE create_weapon(IN entry MEDIUMINT(7), IN name VARCHAR(255),  IN description VARCHAR(255), IN class TINYINT(3), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN inventorytype TINYINT(3), IN sheath TINYINT(3), IN quality TINYINT(3), IN itemlevel SMALLINT(5), IN requiredlevel TINYINT(3), IN flags INT(10), IN material TINYINT(10), IN bonding TINYINT(3))
 BEGIN
-    REPLACE INTO item_template(entry, name, description, class, subclass, displayid, inventorytype, sheath, quality, itemlevel, requiredlevel, flags, material) VALUES
-      (entry, name, description, class, subclass, displayid, inventorytype, sheath, quality, itemlevel, requiredlevel, flags, material);
+    REPLACE INTO item_template(entry, name, description, class, subclass, displayid, inventorytype, sheath, quality, itemlevel, requiredlevel, flags, material, bonding) VALUES
+      (entry, name, description, class, subclass, displayid, inventorytype, sheath, quality, itemlevel, requiredlevel, flags, material, bonding);
 END//
 
 DROP PROCEDURE IF EXISTS `create_polearm` //
 CREATE PROCEDURE create_polearm(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_polearm, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_polearm, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_two_hand_axe` //
 CREATE PROCEDURE create_two_hand_axe(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_axe_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_axe_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_two_hand_mace` //
 CREATE PROCEDURE create_two_hand_mace(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @sublcass_mace_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @sublcass_mace_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_two_hand_sword` //
 CREATE PROCEDURE create_two_hand_sword(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_sword_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_sword_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_one_hand_dagger` //
 CREATE PROCEDURE create_one_hand_dagger(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_dagger, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_dagger, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_one_hand_mace` //
 CREATE PROCEDURE create_one_hand_mace(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_mace_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_mace_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_one_hand_sword` //
 CREATE PROCEDURE create_one_hand_sword(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_sword_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_sword_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_one_hand_axe` //
 CREATE PROCEDURE create_one_hand_axe(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_axe_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_axe_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_main_hand_fist` //
 CREATE PROCEDURE create_main_hand_fist(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_fist_weapon, displayid, @inventorytype_main_hand, @sheath_fist_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_fist_weapon, displayid, @inventorytype_main_hand, @sheath_fist_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_off_hand_fist` //
 CREATE PROCEDURE create_off_hand_fist(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_fist_weapon, displayid, @inventorytype_off_hand, @sheath_fist_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_fist_weapon, displayid, @inventorytype_off_hand, @sheath_fist_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_staff` //
 CREATE PROCEDURE create_staff (IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_staff, displayid, @inventorytype_two_hand, @sheath_staff, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_staff, displayid, @inventorytype_two_hand, @sheath_staff, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_wand` //
 CREATE PROCEDURE create_wand(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_wand, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_wand, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_gun` //
 CREATE PROCEDURE create_gun(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_gun, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_gun, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_crossbow` //
 CREATE PROCEDURE create_crossbow(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_crossbow, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_crossbow, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_bow` //
 CREATE PROCEDURE create_bow(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, @subclass_bow, displayid, @inventorytype_bow, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
+    CALL create_weapon(entry, name, description, @class_weapon, @subclass_bow, displayid, @inventorytype_bow, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_off_hand_weapon` //
 CREATE PROCEDURE create_off_hand_weapon(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_weapon, subclass, displayid, @inventorytype_off_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_weapon, subclass, displayid, @inventorytype_off_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_off_hand_frill` //
 CREATE PROCEDURE create_off_hand_frill(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_armor, @subclass_miscellaneous, displayid, @inventorytype_holdable, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_liquid);
+    CALL create_weapon(entry, name, description, @class_armor, @subclass_miscellaneous, displayid, @inventorytype_holdable, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_liquid, @bind_on_pickup);
 END//
 
 DROP PROCEDURE IF EXISTS `create_shield` //
 CREATE PROCEDURE create_shield(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
-    CALL create_weapon(entry, name, description, @class_armor, @subclass_shield, displayid, @inventorytype_shield, @sheath_shield, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
+    CALL create_weapon(entry, name, description, @class_armor, @subclass_shield, displayid, @inventorytype_shield, @sheath_shield, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal, @bind_on_pickup);
 END//
 
 DELIMITER ;
+
+/* ------------------------ Tier 2 -> Rank 12-13 PVP port ------------------------ */
 
 -- Weapons
 CALL create_two_hand_axe(70000, "Bloodthirsty Gladiator's Decapitator", '', 70000, @flags_default);
@@ -375,7 +380,7 @@ call create_legs(80057, "Bloodthirsty Gladiator's Dragonhide Legguards", '', @su
 call create_boots(80058, "Bloodthirsty Gladiator's Footguards", '', @subclass_leather, 80058, @flags_default, @class_druid, @material_leather); 
 
 /*
-* Warlock
+* Mage
 */
 call create_helmet(80059, "Bloodthirsty Gladiator's Silk Cowl", '', @subclass_cloth, 80059, @flags_default, @class_mage, @material_cloth); 
 call create_shoulders(80060, "Bloodthirsty Gladiator's Silk Amice", '', @subclass_cloth, 80060, @flags_default, @class_mage, @material_cloth); 
@@ -411,3 +416,70 @@ call create_gloves(80080, "Bloodthirsty Gladiator's Scaled Gauntlets", '', @subc
 call create_belt(80081, "Bloodthirsty Gladiator's Clasp", '', @subclass_plate, 80081, @flags_default, @class_paladin, @material_plate); 
 call create_legs(80082, "Bloodthirsty Gladiator's Scaled Legguards", '', @subclass_plate, 80082, @flags_default, @class_paladin, @material_plate); 
 call create_boots(80083, "Bloodthirsty Gladiator's Greaves", '', @subclass_plate, 80083, @flags_default, @class_paladin, @material_plate); 
+
+
+/* ------------------------ Cataclysm Tier 12 Raid Set (Fiery theme) for Heroic Molten Core ------------------------
+----------------------------------------------- 8 Piece Armour Set -------------------------------------------------
+*/
+
+/*
+* Warrior
+*/
+call create_helmet(80084, "Helmet of the Molten Giant", '', @subclass_plate, 80084, @flags_default, @class_warrior, @material_plate); 
+call create_shoulders(80085, "Pauldrons of the Molten Giant", '', @subclass_plate, 80085, @flags_default, @class_warrior, @material_plate); 
+call create_chest(80086, "Battleplate of the Molten Giant", '', @subclass_plate, 80086, @flags_default, @class_warrior, @material_plate);
+call create_bracers(80087, "Bracers of the Molten Giant", '', @subclass_plate, 80087, @flags_default, @class_warrior, @material_plate); 
+call create_gloves(80088, "Gauntlets of the Molten Giant", '', @subclass_plate, 80088, @flags_default, @class_warrior, @material_plate);
+call create_belt(80089, "Girdle of the Molten Giant", '', @subclass_plate, 80089, @flags_default, @class_warrior, @material_plate); 
+call create_legs(80090, "Legplates of the Molten Giant", '', @subclass_plate, 80090, @flags_default, @class_warrior, @material_plate);
+call create_boots(80091, "Warboots of the Molten Giant", '', @subclass_plate, 80091, @flags_default, @class_warrior, @material_plate); 
+
+/*
+* Hunter
+*/
+call create_helmet(80092, "Flamewaker's Headguard", '', @subclass_mail, 80092, @flags_default, @class_hunter, @material_chain); 
+call create_shoulders(80093, "Flamewaker's Spaulders", '', @subclass_mail, 80093, @flags_default, @class_hunter, @material_chain); 
+call create_chest(80094, "Flamewaker's Tunic", '', @subclass_mail, 80094, @flags_default, @class_hunter, @material_chain); 
+call create_bracers(80095, "Flamewaker's Bracers", '', @subclass_mail, 80095, @flags_default, @class_hunter, @material_chain); 
+call create_gloves(80096, "Flamewaker's Gloves", '', @subclass_mail, 80096, @flags_default, @class_hunter, @material_chain); 
+call create_belt(80097, "Flamewaker's Belt", '', @subclass_mail, 80097, @flags_default, @class_hunter, @material_chain); 
+call create_legs(80098, "Flamewaker's Legguards", '', @subclass_mail, 80098, @flags_default, @class_hunter, @material_chain); 
+call create_boots(80099, "Flamewaker's Treads", '', @subclass_mail, 80099, @flags_default, @class_hunter, @material_chain); 
+
+/*
+* Rogue
+*/
+call create_helmet(80100, "Dark Phoenix Helmet", '', @subclass_leather, 80100, @flags_default, @class_rogue, @material_leather); 
+call create_shoulders(80101, "Dark Phoenix Spaulders", '', @subclass_leather, 80101, @flags_default, @class_rogue, @material_leather); 
+call create_chest(80102, "Dark Phoenix Tunic", '', @subclass_leather, 80102, @flags_default, @class_rogue, @material_leather); 
+call create_bracers(80103, "Dark Phoenix Bracers", '', @subclass_leather, 80103, @flags_default, @class_rogue, @material_leather); 
+call create_gloves(80104, "Dark Phoenix Gloves", '', @subclass_leather, 80104, @flags_default, @class_rogue, @material_leather); 
+call create_belt(80105, "Dark Phoenix Girdle", '', @subclass_leather, 80105, @flags_default, @class_rogue, @material_leather); 
+call create_legs(80106, "Dark Phoenix Legguards", '', @subclass_leather, 80106, @flags_default, @class_rogue, @material_leather); 
+call create_boots(80107, "Dark Phoenix Treads", '', @subclass_leather, 80107, @flags_default, @class_rogue, @material_leather);
+
+/*
+* Priest
+*/
+call create_helmet(80108, "Cowl of the Cleansing Flame", '', @subclass_cloth, 80108, @flags_default, @class_priest, @material_cloth); 
+call create_shoulders(80109, "Mantle of the Cleansing Flame", '', @subclass_cloth, 80109, @flags_default, @class_priest, @material_cloth); 
+call create_robe(80110, "Robe of the Cleansing Flame", '', @subclass_cloth, 80110, @flags_default, @class_priest, @material_cloth); 
+call create_chest(80111, "Tunic of the Cleansing Flame", '', @subclass_cloth, 80111, @flags_default, @class_priest, @material_cloth); 
+call create_bracers(80112, "Cuffs of the Cleansing Flame", '', @subclass_cloth, 80112, @flags_default, @class_priest, @material_cloth); 
+call create_gloves(80113, "Handwraps of the Cleansing Flame", '', @subclass_cloth, 80113, @flags_default, @class_priest, @material_cloth); 
+call create_belt(80114, "Chain of the Cleansing Flame", '', @subclass_cloth, 80114, @flags_default, @class_priest, @material_cloth); 
+call create_legs(80115, "Leggings of the Cleansing Flame", '', @subclass_cloth, 80115, @flags_default, @class_priest, @material_cloth); 
+call create_boots(80116, "Slippers of the Cleansing Flame", '', @subclass_cloth, 80116, @flags_default, @class_priest, @material_cloth);
+
+/*
+* Warlock
+*/
+call create_helmet(80117, "Balespider's Hood", '', @subclass_cloth, 80117, @flags_default, @class_warlock, @material_cloth); 
+call create_shoulders(80118, "Balespider's Mantle", '', @subclass_cloth, 80118, @flags_default, @class_warlock, @material_cloth); 
+call create_robe(80119, "Balespider's Robes", '', @subclass_cloth, 80119, @flags_default, @class_warlock, @material_cloth); 
+call create_chest(80120, "Balespider's Tunic", '', @subclass_cloth, 80120, @flags_default, @class_warlock, @material_cloth); 
+call create_bracers(80121, "Balespider's Bindings", '', @subclass_cloth, 80121, @flags_default, @class_warlock, @material_cloth); 
+call create_gloves(80122, "Balespider's Handwraps", '', @subclass_cloth, 80122, @flags_default, @class_warlock, @material_cloth); 
+call create_belt(80123, "Balespider's Belt", '', @subclass_cloth, 80123, @flags_default, @class_warlock, @material_cloth); 
+call create_legs(80124, "Balespider's Leggings", '', @subclass_cloth, 80124, @flags_default, @class_warlock, @material_cloth); 
+call create_boots(80125, "Balespider's Sandals", '', @subclass_cloth, 80125, @flags_default, @class_warlock, @material_cloth);
